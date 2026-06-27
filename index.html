@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صيدلية الحياة | Alhayah Pharmacy</title>
     
-    <!-- Google Fonts for Professional Arabic Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for the Button Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -19,7 +17,7 @@
             --secondary-green: #2a7a2a;
             --background-gradient: linear-gradient(135deg, #f0f7f4 0%, #dcf0e2 100%);
             --text-dark: #1a251f;
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-bg: rgba(255, 255, 255, 0.98);
         }
 
         * {
@@ -28,106 +26,104 @@
             padding: 0;
         }
 
-        body {
-            font-family: 'Cairo', sans-serif;
+        html, body {
+            width: 100%;
+            min-height: 100vh;
             background: var(--background-gradient);
             color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            align-items: flex-start; /* Better for scrollable mobile viewports */
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Animated Background */
+        /* Responsive Background Accents */
         body::before, body::after {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 40vw;
+            height: 40vw;
+            max-width: 300px;
+            max-height: 300px;
             border-radius: 50%;
-            background: rgba(76, 175, 80, 0.1);
+            background: rgba(76, 175, 80, 0.06);
             z-index: -1;
-            animation: float 10s infinite ease-in-out alternate;
+            animation: float 8s infinite ease-in-out alternate;
         }
-        body::before { top: -100px; right: -100px; }
-        body::after { bottom: -100px; left: -100px; animation-delay: -5s; }
+        body::before { top: 2%; right: -5%; }
+        body::after { bottom: 2%; left: -5%; animation-delay: -4s; }
 
         @keyframes float {
             0% { transform: translateY(0px) scale(1); }
-            100% { transform: translateY(30px) scale(1.05); }
+            100% { transform: translateY(15px) scale(1.05); }
         }
 
         .container {
             background: var(--card-bg);
-            max-width: 550px;
-            width: 100%;
-            padding: 50px 30px;
+            width: 92%; /* Uses fluid percentage to consume optimal screen width on mobile */
+            max-width: 460px; /* Locks growth on wider screens or tablets */
+            margin: 25px auto;
+            padding: 35px 20px;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(11, 75, 54, 0.08);
+            box-shadow: 0 15px 35px rgba(11, 75, 54, 0.07);
             text-align: center;
             border-top: 6px solid var(--primary-dark-green);
             backdrop-filter: blur(10px);
             
             opacity: 0;
-            animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-item {
             opacity: 0;
-            animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
 
         .logo {
-            width: 160px;
-            height: 160px;
+            width: 130px;
+            height: 130px;
             object-fit: contain;
-            margin-bottom: 20px;
+            margin: 0 auto 15px auto;
+            display: block;
             border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            transition: transform 0.5s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
         }
 
         h1 {
             color: var(--primary-dark-green);
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 900;
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
+            margin-bottom: 4px;
         }
 
         .subtitle {
             color: #556b5f;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .services-list {
             text-align: right;
             background-color: #ffffff;
-            padding: 25px;
+            padding: 18px 16px;
             border-radius: 16px;
-            margin-bottom: 35px;
-            border: 1px solid rgba(11, 75, 54, 0.1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            margin-bottom: 25px;
+            border: 1px solid rgba(11, 75, 54, 0.08);
             position: relative;
             overflow: hidden;
         }
@@ -143,51 +139,31 @@
         }
 
         .services-list p {
-            margin: 16px 0;
+            margin: 12px 0;
             color: var(--text-dark);
-            font-size: 17px;
+            font-size: 14.5px;
             font-weight: 700;
             display: flex;
             align-items: center;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .services-list p:hover {
-            transform: translateX(-5px);
-            color: var(--primary-dark-green);
+            line-height: 1.5;
         }
 
         .services-list i {
             color: var(--secondary-green);
-            margin-left: 15px;
-            font-size: 20px;
-            width: 25px;
+            margin-left: 12px;
+            font-size: 16px;
+            width: 20px;
             text-align: center;
+            flex-shrink: 0; /* Prevents icons from turning oval on text wrap */
         }
 
-        /* Map Styles */
-        .map-container {
-            width: 100%;
-            height: 220px;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 2px solid #e8f0eb;
-        }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Button Styles */
+        /* Flexbox Action Buttons Layout */
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 25px;
+            width: 100%;
         }
 
         .btn {
@@ -195,46 +171,22 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            padding: 18px 24px;
+            padding: 15px 20px;
             border-radius: 12px;
             color: white;
-            font-size: 18px;
+            font-size: 16.5px;
             font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            transition: all 0.2s ease;
+            width: 100%;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.15);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        .btn:active {
+            transform: scale(0.98);
         }
 
         .btn i {
-            margin-left: 15px;
-            font-size: 24px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover i {
-            transform: scale(1.2);
+            margin-left: 12px;
+            font-size: 18px;
         }
 
         .btn-call { background: linear-gradient(135deg, var(--primary-dark-green), #083828); }
@@ -247,25 +199,51 @@
         }
 
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        .footer-address {
-            font-size: 15px;
-            font-weight: 600;
-            color: #667c70;
-            line-height: 1.8;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 20px;
+        /* Seamless Map Frame */
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e8f0eb;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
+        .footer-address {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #667c70;
+            line-height: 1.6;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 18px;
+        }
+
+        /* Clean Smartphone Adaptations */
         @media (max-width: 480px) {
-            .container { padding: 40px 20px; }
-            h1 { font-size: 26px; }
-            .btn { font-size: 16px; padding: 16px 20px; }
-            .services-list p { font-size: 15px; }
+            body {
+                padding: 5px 0;
+            }
+            .container {
+                padding: 25px 16px;
+                margin: 15px auto;
+                border-radius: 20px;
+            }
+            h1 { font-size: 23px; }
+            .subtitle { margin-bottom: 20px; }
+            .services-list p { font-size: 13.5px; }
+            .btn { font-size: 15.5px; padding: 13px 16px; }
             .map-container { height: 180px; }
         }
     </style>
@@ -273,14 +251,12 @@
 <body>
 
     <div class="container">
-        <!-- Header -->
         <div class="animate-item">
             <img src="Code_Generated_Image.png" alt="Alhayah Pharmacy Logo" class="logo">
             <h1>صيدلية الحياة</h1>
             <div class="subtitle">Alhayah Pharmacy</div>
         </div>
 
-        <!-- Services -->
         <div class="services-list animate-item delay-1">
             <p><i class="fa-solid fa-hands-holding-child"></i> صحتك وصحة عائلتك في أيدٍ أمينة</p>
             <p><i class="fa-solid fa-heart-pulse"></i> قياس الضغط والسكر والوزن مجاناً</p>
@@ -288,7 +264,6 @@
             <p><i class="fa-solid fa-house-medical-circle-check"></i> استشرنا وتصلك طلبيتك حتى باب بيتك</p>
         </div>
 
-        <!-- Buttons -->
         <div class="btn-group animate-item delay-2">
             <a href="tel:+201024282500" class="btn btn-call">
                 <i class="fa-solid fa-phone"></i> اتصل بنا الآن
@@ -298,18 +273,15 @@
                 <i class="fa-brands fa-whatsapp"></i> تواصل عبر واتساب
             </a>
 
-            <!-- Updated Facebook URL -->
             <a href="https://fb.me/Alhayah.Pharmacy" class="btn btn-facebook" target="_blank">
                 <i class="fa-brands fa-facebook-f"></i> صفحتنا على فيسبوك
             </a>
 
-            <!-- Updated Map URL -->
             <a href="https://maps.app.goo.gl/1E3LmN6cdfA2186G7" class="btn btn-map" target="_blank">
                 <i class="fa-solid fa-location-dot"></i> احصل على الاتجاهات
             </a>
         </div>
 
-        <!-- Embedded Google Map using provided Coordinates -->
         <div class="map-container animate-item delay-3">
             <iframe 
                 src="https://maps.google.com/maps?q=31.30687827460859,31.140829625298146&t=&z=16&ie=UTF8&iwloc=&output=embed" 
@@ -319,7 +291,6 @@
             </iframe>
         </div>
 
-        <!-- Footer -->
         <div class="footer-address animate-item delay-4">
             كفرالشيخ - الحامول<br>
             امام فرقة أمن الحامول
